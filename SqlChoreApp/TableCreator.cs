@@ -27,8 +27,8 @@ namespace SqlChoreApp
             sb.Append("USE ChoreDB; ");
             sb.Append("CREATE TABLE Chores ( ");
             sb.Append(" ChoreId INT IDENTITY(1,1) NOT NULL PRIMARY KEY, ");
-            sb.Append(" ChoreName NVARCHAR(50), ");
-            sb.Append(" ChoreAssignment NVARCHAR(50) ");
+            sb.Append(" ChoreName NVARCHAR(MAX), ");
+            sb.Append(" ChoreAssignment NVARCHAR(MAX) ");
             sb.Append("); ");
             sb.Append("INSERT INTO Chores (ChoreName, ChoreAssignment) VALUES ");
             sb.Append("(N'Dishes', N'Fred'), ");
