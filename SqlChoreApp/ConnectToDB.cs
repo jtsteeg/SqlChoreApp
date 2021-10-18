@@ -10,22 +10,20 @@ namespace SqlChoreApp
     public class ConnectToDB
     {
                    
-        public void connect()
+        static public SqlConnection connect()
         {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            builder.DataSource = "DESKTOP-0SORUCL\\SQLSERVER2019";
+            builder.UserID = "sa";
+            builder.Password = "youshouldn'tsavepasswordsasplaintext!1";
+            builder.InitialCatalog = "master";
+            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+
             try
             {
-                Console.WriteLine("Connect to SQL Server and demo Create, Read, Update and Delete operations.");
-
-                // Build connection string
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "DESKTOP-0SORUCL\\SQLSERVER2019";
-                builder.UserID = "sa";
-                builder.Password = "youshouldn'tsavepasswordsasplaintext!1";
-                builder.InitialCatalog = "master";
-
                 // Connect to SQL
                 Console.Write("Connecting to SQL Server ... ");
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                using (connection)
                 {
                     connection.Open();
                     Console.WriteLine("Done.");
@@ -35,6 +33,8 @@ namespace SqlChoreApp
             {
                 Console.WriteLine(e.ToString());
             }
+
+            return connection;
         }
     }
 }

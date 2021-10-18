@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 
 namespace SqlChoreApp
 {
@@ -6,7 +7,10 @@ namespace SqlChoreApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SqlConnection ChoreDBConnection = ConnectToDB.connect();
+
+
+            DisconnectFromDB.Disconnect(ChoreDBConnection);
         }
     }
 }
