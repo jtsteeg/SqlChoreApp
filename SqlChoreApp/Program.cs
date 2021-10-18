@@ -9,6 +9,8 @@ namespace SqlChoreApp
         {
             SqlConnection ChoreDBConnection = ConnectToDB.connect();
 
+            TableCreator.CreateTable(ChoreDBConnection);
+
 
             DisconnectFromDB.Disconnect(ChoreDBConnection);
         }

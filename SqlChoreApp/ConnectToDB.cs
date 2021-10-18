@@ -23,11 +23,11 @@ namespace SqlChoreApp
             {
                 // Connect to SQL
                 Console.Write("Connecting to SQL Server ... ");
-                using (connection)
-                {
+                //using (connection)
+                //{
                     connection.Open();
                     Console.WriteLine("Done.");
-                }
+                //}
             }
             catch (SqlException e)
             {
