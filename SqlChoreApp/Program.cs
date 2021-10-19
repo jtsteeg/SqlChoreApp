@@ -13,6 +13,8 @@ namespace SqlChoreApp
 
             CrudOperations.DeleteChore(ChoreDBConnection);
 
+            CrudOperations.ReadChores(ChoreDBConnection);
+
 
             DisconnectFromDB.Disconnect(ChoreDBConnection);
         }

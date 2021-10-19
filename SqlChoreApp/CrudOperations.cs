@@ -32,6 +32,24 @@ namespace SqlChoreApp
             }
         }
 
+        static public void ReadChores(SqlConnection currentConnection)
+        {
+            Console.WriteLine("Reading data from Chore table, press any key to continue...");
+            Console.ReadKey(true);
+            String sqlCommand = "SELECT ChoreID, ChoreName, ChoreAssignment FROM Chores;";
+            using (SqlCommand command = new SqlCommand(sqlCommand, currentConnection))
+            {
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0} {1} {2}", reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
+                    }
+                }
+            }
+        }
+
 
     }
 }
