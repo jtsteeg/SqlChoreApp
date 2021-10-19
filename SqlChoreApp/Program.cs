@@ -11,14 +11,16 @@ namespace SqlChoreApp
 
             TableCreator.CreateTable(ChoreDBConnection);
 
-            CrudOperations.CreateChore(ChoreDBConnection);
+            CrudOperations.CreateChore(ChoreDBConnection, "Dishes", "Fred");
+            CrudOperations.CreateChore(ChoreDBConnection, "Trash", "George");
+            CrudOperations.CreateChore(ChoreDBConnection, "Mop the floor", "Lambert");
+            
 
             CrudOperations.UpdateChore(ChoreDBConnection);
 
             CrudOperations.DeleteChore(ChoreDBConnection);
 
             CrudOperations.ReadChores(ChoreDBConnection);
-
 
             DisconnectFromDB.Disconnect(ChoreDBConnection);
         }

@@ -20,7 +20,6 @@ namespace SqlChoreApp
                 Console.WriteLine("Done.");
             }
 
-            // Create a Table and insert some sample data
             Console.Write("Creating sample table with data, press any key to continue...");
             Console.ReadKey(true);
             StringBuilder sb = new StringBuilder();
@@ -30,10 +29,6 @@ namespace SqlChoreApp
             sb.Append(" ChoreName NVARCHAR(MAX), ");
             sb.Append(" ChoreAssignment NVARCHAR(MAX) ");
             sb.Append("); ");
-            sb.Append("INSERT INTO Chores (ChoreName, ChoreAssignment) VALUES ");
-            sb.Append("(N'Dishes', N'Fred'), ");
-            sb.Append("(N'Trash', N'George'), ");
-            sb.Append("(N'Mopping', N'Lambert'); ");
             sql = sb.ToString();
             using (SqlCommand command = new SqlCommand(sql, currentConnection))
             {
