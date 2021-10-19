@@ -9,7 +9,24 @@ namespace SqlChoreApp
 {
     class CrudOperations
     {
-        StringBuilder sb = new StringBuilder();
+        
+        static public void CreateChore(SqlConnection currentConnection)
+        {
+            Console.Write("Creating a new chore for the Chore table, press any key to continue...");
+            Console.ReadKey(true);
+            StringBuilder sb = new StringBuilder();
+            sb.Clear();
+            sb.Append("INSERT Chores (ChoreName, ChoreAssignment) ");
+            sb.Append("VALUES (@chorenameinput, @choreassignedperson);");
+            String sqlCommand = sb.ToString();
+            using (SqlCommand command = new SqlCommand(sqlCommand, currentConnection))
+            {
+                command.Parameters.AddWithValue("@chorenameinput", "Feed the beast that hants our dreams, it hungers so");
+                command.Parameters.AddWithValue("@choreassignedperson", "Paul");
+                int rowsAffected = command.ExecuteNonQuery();
+                Console.WriteLine(rowsAffected + " row(s) inserted");
+            }
+        }
 
         static public void UpdateChore(SqlConnection currentConnection)
         {

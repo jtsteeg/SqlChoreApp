@@ -11,6 +11,8 @@ namespace SqlChoreApp
 
             TableCreator.CreateTable(ChoreDBConnection);
 
+            CrudOperations.CreateChore(ChoreDBConnection);
+
             CrudOperations.UpdateChore(ChoreDBConnection);
 
             CrudOperations.DeleteChore(ChoreDBConnection);
